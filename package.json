@@ -1,0 +1,24 @@
+{
+  "name": "weather-on-mars",
+  "version": "0.0.1",
+  "description": "A Node backend to get current weather on Mars, because it's relevant information. Trust me.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Harshdeep Singh Hura",
+  "license": "ISC",
+  "devDependencies": {
+    "jshint": "^2.12.0",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.1.3",
+    "express-slow-down": "^1.3.1",
+    "helmet": "^4.1.0",
+    "morgan": "^1.10.0"
+  }
+}
