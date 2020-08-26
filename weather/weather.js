@@ -9,17 +9,20 @@ const baseUrl = "https://api.nasa.gov/insight_weather/?";
 var cacheData;
 var cacheTime;
 
+//Allow 20 calls in a 30 second window before rate limiting
 const limit = rateLimit({
   windowMs: 30 * 1000,
   max: 20,
 });
 
+//After the first call, add 500ms to each subsequent call, reset when hit the 30 second mark
 const speedLimiter = speedLimit({
   windowMs: 30 * 1000,
   delayAfter: 1,
   delayMs: 500,
 });
 
+//Create our own Api Key
 const _apiKey = new Map();
 _apiKey.set("12345", true);
 
@@ -37,6 +40,7 @@ router.get(
     }
   },
   async (req, res, next) => {
+    //Cache data
     if (cacheTime && cacheTime > Date.now() - 30 * 1000) {
       return res.json(cachedData);
     }
